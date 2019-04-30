@@ -10,7 +10,9 @@ const darkSky = (long, lat, location, callback) => {
         } else if (body.error) {
             callback(body.error)
         } else {
-            callback(undefined, `${body.daily.summary} It is currently ${body.currently.temperature} degrees in ${location} in time zone ${body.timezone}. There is a ${body.currently.precipProbability}% chance of rain.`)
+            callback(undefined, `${body.daily.summary}<br>It is currently ${body.currently.temperature} degrees in ${location} in time zone ${body.timezone}. There is a ${body.currently.precipProbability}% chance of rain.
+            <br>The lowest tempreature for today should be arround ${body.daily.data[0].temperatureMin}, whereas the highest temperature should arround ${body.daily.data[0].temperatureMax}.
+            `)
         }
     })
 }
